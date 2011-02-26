@@ -1,0 +1,2 @@
+module SportTypesHelper
+end

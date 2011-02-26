@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  visitingteamid: 1
+  hometeamid: 1
+  time: 2011-02-25 11:19:57
+  location: MyString
+  winnerid: 1
+  visitingteamscore: 1
+  hometeamscore: 1
+  createdat: 2011-02-25 11:19:57
+  updatedat: 2011-02-25 11:19:57
+
+two:
+  visitingteamid: 1
+  hometeamid: 1
+  time: 2011-02-25 11:19:57
+  location: MyString
+  winnerid: 1
+  visitingteamscore: 1
+  hometeamscore: 1
+  createdat: 2011-02-25 11:19:57
+  updatedat: 2011-02-25 11:19:57

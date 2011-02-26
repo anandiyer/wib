@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visitingteamid:</b>
+  <%= @game.visitingteamid %>
+</p>
+
+<p>
+  <b>Hometeamid:</b>
+  <%= @game.hometeamid %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @game.time %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @game.location %>
+</p>
+
+<p>
+  <b>Winnerid:</b>
+  <%= @game.winnerid %>
+</p>
+
+<p>
+  <b>Visitingteamscore:</b>
+  <%= @game.visitingteamscore %>
+</p>
+
+<p>
+  <b>Hometeamscore:</b>
+  <%= @game.hometeamscore %>
+</p>
+
+<p>
+  <b>CreatedAt:</b>
+  <%= @game.created_at %>
+</p>
+
+<p>
+  <b>UpdatedAt:</b>
+  <%= @game.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

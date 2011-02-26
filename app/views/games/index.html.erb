@@ -1,0 +1,39 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>Visitingteamid</th>
+    <th>Hometeamid</th>
+    <th>Time</th>
+    <th>Location</th>
+    <th>Winnerid</th>
+    <th>Visitingteamscore</th>
+    <th>Hometeamscore</th>
+    <th>CreatedAt</th>
+    <th>UpdatedAt</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.visitingteamid %></td>
+    <td><%= game.hometeamid %></td>
+    <td><%= game.time %></td>
+    <td><%= game.location %></td>
+    <td><%= game.winnerid %></td>
+    <td><%= game.visitingteamscore %></td>
+    <td><%= game.hometeamscore %></td>
+    <td><%= game.created_at %></td>
+    <td><%= game.updated_at %></td>
+    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game', new_game_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gameid: 1
+  winnerteamid: 1
+  createdat: 2011-02-25 11:20:38
+  votedby: 1
+
+two:
+  gameid: 1
+  winnerteamid: 1
+  createdat: 2011-02-25 11:20:38
+  votedby: 1

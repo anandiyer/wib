@@ -1,0 +1,2 @@
+module LeagueTypesHelper
+end

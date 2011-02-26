@@ -1,0 +1,23 @@
+<h1>Listing sport_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sport_types.each do |sport_type| %>
+  <tr>
+    <td><%= sport_type.name %></td>
+    <td><%= link_to 'Show', sport_type %></td>
+    <td><%= link_to 'Edit', edit_sport_type_path(sport_type) %></td>
+    <td><%= link_to 'Destroy', sport_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sport type', new_sport_type_path %>

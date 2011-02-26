@@ -1,0 +1,45 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visitingteamid %><br />
+    <%= f.text_field :visitingteamid %>
+  </div>
+  <div class="field">
+    <%= f.label :hometeamid %><br />
+    <%= f.text_field :hometeamid %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.datetime_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :winnerid %><br />
+    <%= f.text_field :winnerid %>
+  </div>
+  <div class="field">
+    <%= f.label :visitingteamscore %><br />
+    <%= f.text_field :visitingteamscore %>
+  </div>
+  <div class="field">
+    <%= f.label :hometeamscore %><br />
+    <%= f.text_field :hometeamscore %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
