@@ -25,7 +25,11 @@ class VotesController < ApplicationController
   # GET /votes/new.xml
   def new
     @vote = Vote.new
-
+    # find the first upcoming game that this user hasn't voted on yet
+    @game = Game.find(:first)
+    @hometeam = Team.find(@game.hometeamid)
+    @visitingteam = Team.find(@game.visitingteamid)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @vote }
