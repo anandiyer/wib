@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_filter :authenticate_user!, :except => [ :index, :show, :new ]
+  
   # GET /votes
   # GET /votes.xml
   def index
@@ -45,6 +47,7 @@ class VotesController < ApplicationController
   # POST /votes.xml
   def create
     @vote = Vote.new(params[:vote])
+    @vote.votedby = current_user.id
 
     respond_to do |format|
       if @vote.save

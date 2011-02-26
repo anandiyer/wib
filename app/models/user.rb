@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   has_many :authentications
+  has_many :votes, :foreign_key => 'votedby'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

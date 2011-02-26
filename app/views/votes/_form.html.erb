@@ -12,18 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :gameid %><br />
-	<%= @game.id %><br />
-	<%= @visitingteam.name %> v <%= @hometeam.name %><br />
-    <%= f.text_field :gameid %>
+    <%= f.label :gameid %>: <%= @game.id %><br />
+	<%= @visitingteam.name %> <%= @visitingteam.nickname %> (<%= @visitingteam.id %>) v 
+	<%= @hometeam.name %> <%= @hometeam.nickname %> (<%= @hometeam.id %>) <br />
+	<%= hidden_field_tag "gameid", @game.id %>
   </div>
   <div class="field">
     <%= f.label :winnerteamid %><br />
     <%= f.text_field :winnerteamid %>
-  </div>
-  <div class="field">
-    <%= f.label :votedby %><br />
-    <%= f.text_field :votedby %>
   </div>
   <div class="actions">
     <%= f.submit %>
