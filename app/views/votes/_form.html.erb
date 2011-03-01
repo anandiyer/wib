@@ -1,4 +1,4 @@
-<%= form_for(@vote) do |f| %>
+
   <% if @vote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :gameid %>: <%= @game.id %><br />
-	<%= @visitingteam.name %> <%= @visitingteam.nickname %> (<%= @visitingteam.id %>) v 
-	<%= @hometeam.name %> <%= @hometeam.nickname %> (<%= @hometeam.id %>) <br />
-	<%= hidden_field_tag "gameid", @game.id %>
-  </div>
-  <div class="field">
-    <%= f.label :winnerteamid %><br />
-    <%= f.text_field :winnerteamid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	<div class="actions">
+		<%= button_to @visitingteam.name + " " + @visitingteam.nickname, 
+			:id => @vote,
+			:action => "create",
+			:vote => { :winnerteamid => @visitingteam.id, :gameid => @game.id }
+		 %>
+		v
+		<%= button_to @hometeam.name + " " + @hometeam.nickname, 
+			:id => @vote,
+			:action => "create",
+			:vote => { :winnerteamid => @hometeam.id, :gameid => @game.id }
+		 %>
+	</div>
