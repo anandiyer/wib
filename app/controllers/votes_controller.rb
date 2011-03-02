@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_filter :authenticate_user!, :except => [ :index, :show, :new ]
+  before_filter :authenticate_user!, :except => [ :index, :show ]
   
   # GET /votes
   # GET /votes.xml
@@ -27,11 +27,22 @@ class VotesController < ApplicationController
   # GET /votes/new.xml
   def new
     @vote = Vote.new
-    # FIXME - find the first upcoming game that this user hasn't voted on yet
-    @game = Game.find(:first)
+
+    # get all the gameids of the votes that this user has made
+    @gameids = Vote.find(:all, :conditions => ["votedby = ?", current_user.id], :select => "gameid").collect{|vote| vote.gameid} 
+    
+    # then, find the first upcoming game from the @games list that is not in @uservotes 
+    if (@gameids.count > 0)
+        @game = Game.find(:first, :conditions => ["time >= ? AND id not in (?)", DateTime.now, @gameids])
+    else
+        @game = Game.find(:first, :conditions => ["time >= ?", DateTime.now])
+    end
+    
+    #FIXME - check if game == null a different response needs to be returned
+    
     @hometeam = Team.find(@game.hometeamid)
     @visitingteam = Team.find(@game.visitingteamid)
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @vote }
