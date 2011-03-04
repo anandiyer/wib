@@ -39,6 +39,9 @@ class VotesController < ApplicationController
     end
     
     #FIXME - check if game == null a different response needs to be returned
+    if (@game.nil?)
+        redirect_to :controller => "home", :action => "index" and return
+    end
     
     @hometeam = Team.find(@game.hometeamid)
     @visitingteam = Team.find(@game.visitingteamid)
@@ -62,7 +65,7 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
+        format.html { redirect_to(:action => "new") }
         format.xml  { render :xml => @vote, :status => :created, :location => @vote }
       else
         format.html { render :action => "new" }
